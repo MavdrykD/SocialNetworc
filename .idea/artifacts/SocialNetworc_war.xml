@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="SocialNetworc:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="SocialNetworc-1.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="SocialNetworc:war exploded" />
+    </root>
+  </artifact>
+</component>
