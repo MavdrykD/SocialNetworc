@@ -14,6 +14,8 @@
     <link rel="stylesheet" type="text/css" href="/css/logInForm.css"> <%--шукає файл стилізації--%>
     <link rel="stylesheet" type="text/css" href="/css/madalWindov.css"> <%--шукає файл стилізації--%>
     <link rel="stylesheet" type="text/css" href="/css/previewImg.css">
+    <link rel="stylesheet" type="text/css" href="/css/grid.css">
+
     <title>Title</title>
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -25,8 +27,24 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 <body>
-    <div><tiles:insertAttribute name="header"/></div>
-    <div><tiles:insertAttribute name="body"/></div>
-    <div><tiles:insertAttribute name="footer"/></div>
+<div class="content">
+
+
+    <div class="header"><tiles:insertAttribute name="header"/></div>
+
+        <div class="myContainer">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="leftMenu"><tiles:insertAttribute name="leftMenu"/></div>
+                </div>
+                <div class="col-md-8">
+                    <div class="body"><tiles:insertAttribute name="body"/></div>
+                </div>
+            </div>
+        </div>
+
+    <div class="footer"><tiles:insertAttribute name="footer"/></div>
+
+</div>
 </body>
 </html>

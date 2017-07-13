@@ -9,7 +9,7 @@
     <security:http use-expressions="true">
         <!--<security:intercept-url pattern="/" access="hasRole('ROLE_USER')"/>-->
         <security:form-login login-page="/" login-processing-url="/login"
-                             authentication-success-forward-url="/userPage"
+                             default-target-url="/userPage"
                                 authentication-failure-forward-url="/failureLogin" />
 
         <security:logout logout-url="/logout" logout-success-url="/"/>

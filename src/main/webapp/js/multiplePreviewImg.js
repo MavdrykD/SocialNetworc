@@ -16,6 +16,7 @@ function handleFileSelectMulti(evt) {
         // Closure to capture the file information.
         reader.onload = (function (theFile) {
             return function (e) {
+
                 // Render thumbnail.
                 var span = document.createElement('span');
                 span.innerHTML = ['<img class="img-thumbnail" src="', e.target.result,
@@ -24,6 +25,8 @@ function handleFileSelectMulti(evt) {
             };
         })(f);
 
+
+
         // Read in the image file as a data URL.
         reader.readAsDataURL(f);
     }
@@ -31,3 +34,8 @@ function handleFileSelectMulti(evt) {
 
 
 document.getElementById('fileMulti').addEventListener('change', handleFileSelectMulti, false);
+
+// var deleteImage = document.createElement('input');
+// deleteImage.type = 'button';
+// deleteImage.name = 'delete';
+// document.getElementById('outputMulti').insertBefore(deleteImage, null);

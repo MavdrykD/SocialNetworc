@@ -4,33 +4,7 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="sf" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 
-
-<%--<link rel="stylesheet" href="/css/logInForm.css">--%>
-
-
-    <%--<a href="/signUp">registration</a>--%>
-    <%--<a href="/removeUser">removeUser</a>--%>
-
-
-    ${exception}
-    <div id="login-tab-content">
-        <sf:form class="login-form" action="/login" method="post">
-            <div class="group">
-                <input name="username" type="text" autocomplete="off" placeholder="Enter login or email">
-                <span class="bar"></span>
-            </div>
-            <div class="group">
-                <input name="password" type="password" autocomplete="off" placeholder="enter password">
-                <span class="bar"></span>
-            </div>
-            <br>
-
-            <button type="submit" class="btn btn-primary"><spring:message code="label.Log_in"/></button>
-        </sf:form>
-        <a href="javascript:PopUpShow()" class="btn btn-primary">Sign up</a>
-    </div>
-
-
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
     <div class="b-popup" id="popup1" hidden="hidden"> <!--hidden видалити-->
 
         <div class="b-popup-content">

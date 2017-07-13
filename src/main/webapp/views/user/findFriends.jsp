@@ -18,7 +18,7 @@
 
 <ol>
     <c:forEach var="user" items="${users}">
-        <li>${user.firstName} ${user.lastName} ${user.email}
+        <li>c ${user.lastName} ${user.email}
             <a href="/requestForFriendship/${user.id}" class="btn btn-primary">Add friend</a> </li><br>
     </c:forEach>
 </ol>

@@ -129,7 +129,7 @@ public class UserController {
 
     @GetMapping("/userPage")
     public String userPage(){
-    return "views-user-userPage";
+		return "views-user-userPage";
 }
 
 	@PostMapping("/userPage")
@@ -149,6 +149,14 @@ public class UserController {
 		model.addAttribute("users", userService.findAllWhoCanBeAddedToFriends(Integer.valueOf(principal.getName())));
 		return "views-user-findFriends";
 	}
+
+//	@ResponseBody
+//	@GetMapping("/securedUser")
+//	public String getSecuredUser(Principal principal){
+//		User user = userService.findOne(Integer.valueOf(principal.getName()));
+//		String securedUser = "Hi "+user.getFirstName();
+//		return securedUser;
+//	}
 
 
 
