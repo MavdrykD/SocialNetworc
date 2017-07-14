@@ -10,9 +10,9 @@
 --%>
 <html>
 <head>
-
-    <link rel="stylesheet" type="text/css" href="/css/logInForm.css"> <%--шукає файл стилізації--%>
-    <link rel="stylesheet" type="text/css" href="/css/madalWindov.css"> <%--шукає файл стилізації--%>
+    <%--шукає файл стилізації--%>
+    <link rel="stylesheet" type="text/css" href="/css/madalWindov.css">
+    <%--шукає файл стилізації--%>
     <link rel="stylesheet" type="text/css" href="/css/previewImg.css">
     <link rel="stylesheet" type="text/css" href="/css/grid.css">
 
@@ -32,16 +32,18 @@
 
     <div class="header"><tiles:insertAttribute name="header"/></div>
 
-        <div class="myContainer">
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="leftMenu"><tiles:insertAttribute name="leftMenu"/></div>
-                </div>
-                <div class="col-md-8">
-                    <div class="body"><tiles:insertAttribute name="body"/></div>
+    <div class="myContainer">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="row">
+                    <div class="col-md-12 leftMenu"><tiles:insertAttribute name="leftMenu"/></div>
                 </div>
             </div>
+            <div class="col-md-9">
+                <div class="body"><tiles:insertAttribute name="body"/></div>
+            </div>
         </div>
+    </div>
 
     <div class="footer"><tiles:insertAttribute name="footer"/></div>
 

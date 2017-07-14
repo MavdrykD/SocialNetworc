@@ -53,7 +53,6 @@
              },
              error: function (err) {
                  console.log(err)
-                 console.log('2334');
              }
          })
 

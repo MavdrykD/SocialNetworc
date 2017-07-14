@@ -10,7 +10,7 @@
         <h3>Write a message</h3>
         <div>
             <form action="/sendMessage" method="post">
-                <textarea class="md-content" wrap="soft" cols="64" rows="8" style="width: 100%;" id="messageContent">
+                <textarea class="md-content"  wrap="soft" cols="64" rows="8" style="width: 100%;" id="messageContent">
                 </textarea>
             </form>
             <button class="btn btn-primary" id="sendMessage">Send message</button><br>

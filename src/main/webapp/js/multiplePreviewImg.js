@@ -9,6 +9,7 @@ function handleFileSelectMulti(evt) {
         // Only process image files.
         if (!f.type.match('image.*')) {
             alert("Only Images....");
+
         }
 
         var reader = new FileReader();

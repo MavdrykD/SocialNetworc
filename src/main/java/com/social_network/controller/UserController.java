@@ -130,7 +130,7 @@ public class UserController {
     @GetMapping("/userPage")
     public String userPage(){
 		return "views-user-userPage";
-}
+	}
 
 	@PostMapping("/userPage")
 	public String helloUser(){
@@ -150,13 +150,19 @@ public class UserController {
 		return "views-user-findFriends";
 	}
 
-//	@ResponseBody
-//	@GetMapping("/securedUser")
-//	public String getSecuredUser(Principal principal){
-//		User user = userService.findOne(Integer.valueOf(principal.getName()));
-//		String securedUser = "Hi "+user.getFirstName();
-//		return securedUser;
-//	}
+	@ResponseBody
+	@GetMapping("/securedUser")
+	public String getSecuredUser(Principal principal){
+		User user = userService.findOne(Integer.valueOf(principal.getName()));
+		String securedUser = "Hi "+user.getFirstName();
+		return securedUser;
+	}
+
+	@GetMapping("/allUsers")
+	public String seeAllUser(Model model){
+		model.addAttribute("users", userService.findAll());
+		return "views-admin-allUser";
+	}
 
 
 
