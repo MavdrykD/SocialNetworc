@@ -8,7 +8,7 @@
             <%--<sec:authorize access="isAuthenticated()">--%>
             <%--</sec:authorize>--%>
         <sec:authorize access="hasRole('ROLE_USER')">
-            <li><a href="/userPage/${user.id}" class="btn btn-primary">My page</a></li>
+            <li><a href="/userPage/${idSecuredUser}" class="btn btn-primary">My page</a></li>
             <br>
             <li><a href="/friends" class="btn btn-primary">My friends</a></li>
             <br>

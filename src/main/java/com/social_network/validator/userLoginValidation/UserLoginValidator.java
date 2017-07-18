@@ -27,8 +27,8 @@ public class UserLoginValidator implements Validator{
             throw new UserException(UserLoginValidationMessages.EMPTY_USERNAME_FIELD);
         } else if (userDao.findByLogin(user.getLogin()) == null) {
             throw new UserException(UserLoginValidationMessages.WRONG_USERNAME_OR_PASSWORD);
-        } else if (encoder.matches(user.getPassword(),
-                userDao.findByLogin(user.getLogin()).getPassword())){
+        } else if (encoder.matches(user.getPassword(), userDao.findByLogin(user.getLogin()).getPassword())){
+            System.err.println("password Exception");
             throw new UserException(UserLoginValidationMessages.WRONG_USERNAME_OR_PASSWORD);
         }
     }

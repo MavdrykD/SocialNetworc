@@ -7,7 +7,7 @@
 
         </div>
         <div class="userInfo">
-            <a href="#"></a>
+            <a href="/userPage/${user.id}">${user.firstName} ${user.lastName}</a>
         </div>
     </div>
 </c:forEach>

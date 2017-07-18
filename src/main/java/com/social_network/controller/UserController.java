@@ -85,9 +85,10 @@ public class UserController {
 			validator.validate(new User(username,password));
 		} catch (Exception e) {
 			if(e.getMessage().equals(UserLoginValidationMessages.EMPTY_USERNAME_FIELD)||
-					e.getMessage().equals(UserLoginValidationMessages.EMPTY_PASSWORD_FIELD)||
-					e.getMessage().equals(UserLoginValidationMessages.WRONG_USERNAME_OR_PASSWORD)){
+					e.getMessage().equals(UserLoginValidationMessages.EMPTY_PASSWORD_FIELD)){
 				model.addAttribute("exception", e.getMessage());
+			}else if(e.getMessage().equals(UserLoginValidationMessages.WRONG_USERNAME_OR_PASSWORD)){
+				model.addAttribute("exceptionPassword", e.getMessage());
 			}
 
 		}
@@ -133,14 +134,16 @@ public class UserController {
 	}
 
 	@PostMapping("/userPage")
-	public String helloUser(){
-		return "views-user-userPage";
+	public String helloUser(Principal principal){
+		int idSecuredUser = Integer.valueOf(principal.getName());
+		return "views-user-userPage/"+idSecuredUser;
 	}
 
 	@GetMapping("/friends")
 	public String seeAllFriends(Model model, Principal principal){
 		User user = userService.findByIdWithFriends(Integer.valueOf(principal.getName()));
 		model.addAttribute("friends", DTOUtilMapper.usersToFriendsDTOs(user.getFriends()) );
+
 		return "views-user-friends";
 	}
 
@@ -162,6 +165,13 @@ public class UserController {
 	public String seeAllUser(Model model){
 		model.addAttribute("users", userService.findAll());
 		return "views-admin-allUser";
+	}
+
+	@GetMapping("/userPage/{id}")
+	public String seeFriendPage(@PathVariable int id, Model model){
+		model.addAttribute("user", userService.findOne(id));
+		String idUser = String.valueOf(id);
+		return "views-admin-friendPage";
 	}
 
 
