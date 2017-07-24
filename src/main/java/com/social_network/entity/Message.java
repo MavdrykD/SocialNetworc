@@ -13,13 +13,15 @@ public class Message {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 
+	private boolean status;
+	private boolean forPreview;
+
 	@ManyToOne
 	private User userSender;
 	
 	private String message;
 
 	@ManyToOne
-
 	private User userReceiver;
 
 	private LocalDateTime dateOfMessageCreation;
@@ -70,10 +72,28 @@ public class Message {
 		this.userReceiver = userReceiver;
 	}
 
+	public boolean isStatus() {
+		return status;
+	}
+
+	public void setStatus(boolean status) {
+		this.status = status;
+	}
+
+	public boolean isForPreview() {
+		return forPreview;
+	}
+
+	public void setForPreview(boolean forPreview) {
+		this.forPreview = forPreview;
+	}
+
 	@Override
 	public String toString() {
 		return "Message{" +
 				"id=" + id +
+				", status=" + status +
+				", forPreview=" + forPreview +
 				", userSender=" + userSender +
 				", message='" + message + '\'' +
 				", userReceiver=" + userReceiver +

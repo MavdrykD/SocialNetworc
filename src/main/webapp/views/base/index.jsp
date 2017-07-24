@@ -8,9 +8,8 @@
 
 
 <div id="login-tab-content" class="loginForm">
-
     ${exception}
-    ${exceptionPassword}
+    ${passException}
         <sf:form class="login-form" action="/login" method="post">
             <div class="group">
                 <input class="form-control" name="username" type="text" autocomplete="off" placeholder="Enter login"
@@ -26,7 +25,6 @@
 
             <button type="submit" class="btn btn-primary"><spring:message code="label.Log_in"/></button>
         </sf:form>
-
 </div>
     <%--modal windov registration--%>
     <div class="md-modal md-effect-8" id="modal-8">

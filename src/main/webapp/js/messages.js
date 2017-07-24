@@ -1,6 +1,11 @@
 /**
  * Created by Дімон on 05.07.2017.
  */
+//
+// $(".sendMessage").click(function(event){
+//     console.log(event.target.name);
+// });
+//
 
 function saveFriendId(frendId) {
 
@@ -101,7 +106,7 @@ $('#sendMessage').click(function () {
 //
 //
 // function updateCity(idCity) {
-//
+//    = '/' ggg '/'
 //     $.ajax({
 //
 //         url: '/city?' + $('input[name=csrf_name]').val() + "=" + $('input[name=csrf_value]').val(),

@@ -9,7 +9,7 @@
     <div class="md-content">
         <h3>Write a message</h3>
         <div>
-            <form action="/sendMessage" method="post">
+            <form action="/sendMessage?${_csrf.parameterName}=${_csrf.token}" method="post" enctype="multipart/form-data">
                 <textarea class="md-content"  wrap="soft" cols="64" rows="8" style="width: 100%;" id="messageContent">
                 </textarea>
             </form>
@@ -22,7 +22,7 @@
 <ol>
 <c:forEach var="friend" items="${friends}">
     <li>${friend.firstName} ${friend.lastName}
-        <button class="md-trigger sendMessage" data-modal="modal-8"  onclick="saveFriendId(${friend.id})">Write a message</button> <%--2. Кнопка для модального вікна--%>
+        <button class="md-trigger sendMessage" data-modal="modal-8"  name="${friend.id}" onclick="saveFriendId(${friend.id})">Write a message</button> <%--2. Кнопка для модального вікна--%>
     </li>
 </c:forEach>
 </ol>
