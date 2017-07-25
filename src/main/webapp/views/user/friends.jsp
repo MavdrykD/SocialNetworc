@@ -9,10 +9,10 @@
     <div class="md-content">
         <h3>Write a message</h3>
         <div>
-            <form action="/sendMessage?${_csrf.parameterName}=${_csrf.token}" method="post" enctype="multipart/form-data">
+            <%--<form action="/sendMessage" method="post">--%>
                 <textarea class="md-content"  wrap="soft" cols="64" rows="8" style="width: 100%;" id="messageContent">
                 </textarea>
-            </form>
+            <%--</form>--%>
             <button class="btn btn-primary" id="sendMessage">Send message</button><br>
             <button class="md-close" id="closeModalWindow">Close me!</button>
         </div>

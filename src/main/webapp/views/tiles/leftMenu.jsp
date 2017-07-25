@@ -15,6 +15,9 @@
             <li><a href="/myPhotos" class="btn btn-primary">My photos</a></li>
             <br>
             <li><a href="/message" class="btn btn-primary">My messages</a></li>
+            <br>
+            <li><a href="/setup" class="btn btn-primary">Setup</a></li>
+
         </sec:authorize>
         <sec:authorize access="hasRole('ROLE_ADMIN')">
             <li><a href="/allUsers" class="btn btn-primary">All users</a></li>

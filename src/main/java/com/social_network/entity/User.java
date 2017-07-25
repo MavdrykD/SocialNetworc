@@ -2,6 +2,8 @@ package com.social_network.entity;
 
 import com.social_network.utility.Gender;
 import com.social_network.utility.Role;
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -34,7 +36,9 @@ public class User implements UserDetails {
 
 	@Enumerated(EnumType.STRING)
 	private Gender Gender;
+
 	@Enumerated
+	@LazyCollection(LazyCollectionOption.FALSE)
 	private Role role;
 
 	@OneToMany(mappedBy = "user")

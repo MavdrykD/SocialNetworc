@@ -25,9 +25,9 @@ public class UserLoginValidator implements Validator{
         User user = (User) o;
         if (user.getLogin().isEmpty()) {
             throw new UserException(UserLoginValidationMessages.EMPTY_USERNAME_FIELD);
-        } else if (userDao.findByLogin(user.getLogin()) == null) {//доробити
+        }  if (userDao.findByLogin(user.getLogin()) == null) {//доробити
             throw new UserException(UserLoginValidationMessages.WRONG_USERNAME_OR_PASSWORD);
-        } else if (encoder.matches(user.getPassword(), userDao.findByLogin(user.getLogin()).getPassword())){
+        } if (encoder.matches(user.getPassword(), userDao.findByLogin(user.getLogin()).getPassword())){
             throw new UserException(UserLoginValidationMessages.WRONG_USERNAME_OR_PASSWORD);
         }
     }

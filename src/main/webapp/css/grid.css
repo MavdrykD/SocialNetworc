@@ -13,12 +13,14 @@
 
 .footer{
     height: 50px;
-    /*background-color: #747474;*/
+    background-color: #3b5998;
 }
 
 .leftMenu{
     margin-top: 10px;
     position: fixed;
+    border-right: 1px solid lightgray;
+    height: 85%;
     /*background-color: #2e458b;*/
 }
 

@@ -21,5 +21,6 @@ public interface MessageService {
 	List<Message> findAllMessagesForPreview(int id);
 
 	Message findLastDialogue(int idSender, int idReceiver);
+
 	List<Message> findOneDialogue(int idSender, int idReceiver);
 }
