@@ -14,5 +14,3 @@
        value="${_csrf.parameterName}" />
 <input type="hidden" name="csrf_value"
        value="${_csrf.token}" />
-
-<%--<script src="/js/messages.js"></script>--%>

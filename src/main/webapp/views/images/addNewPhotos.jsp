@@ -18,7 +18,7 @@
         <%--<br><br>--%>
         <%--<div class="row"><span id="output"></span></div>--%>
         <%--<br><br>--%>
-        <div class="row"><label>Мультизагрузка изображений:</label><input type="file" id="fileMulti" name="images" multiple/></div><br><br>
+        <div class="row"><label>Мультизагрузка изображений:</label><input type="file" id="fileMulti" name="images" multiple accept="image/*"/></div><br><br>
         <div class="row"><span id="outputMulti"></span></div>
     </div>
     <button type="submit" class="btn btn-primary">add photo</button>

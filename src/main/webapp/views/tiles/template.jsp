@@ -39,8 +39,11 @@
                     <div class="col-md-12 leftMenu"><tiles:insertAttribute name="leftMenu"/></div>
                 </div>
             </div>
-            <div class="col-md-9">
+            <div class="col-md-6">
                 <div class="body"><tiles:insertAttribute name="body"/></div>
+            </div>
+            <div class="col-md-3">
+                <div class="advertising"><tiles:insertAttribute name="advertising"/></div>
             </div>
         </div>
     </div>

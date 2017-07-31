@@ -9,6 +9,7 @@
         <put-attribute name="header" value="/views/tiles/header.jsp"/>
         <put-attribute name="footer" value="/views/tiles/footer.jsp"/>
         <put-attribute name="leftMenu" value="/views/tiles/leftMenu.jsp"/>
+        <put-attribute name="advertising" value="/views/tiles/advertising.jsp"/>
         <put-attribute name="title" value="Social Network"/>
     </definition>
 

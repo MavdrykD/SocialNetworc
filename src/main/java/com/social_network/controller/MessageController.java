@@ -1,5 +1,7 @@
 package com.social_network.controller;
 
+import com.social_network.dto.DTOUtilMapper;
+import com.social_network.dto.MessageDTO;
 import com.social_network.entity.Message;
 import com.social_network.entity.User;
 import com.social_network.service.UserService;
@@ -35,7 +37,7 @@ public class MessageController {
     @Transactional
     @ResponseBody
     @PostMapping(value = "/sendMessage", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-    public List<String> sendMessage(@RequestBody Message message, Principal principal) {
+    public List<MessageDTO> sendMessage(@RequestBody Message message, Principal principal) {
         int idActiveUser = Integer.valueOf(principal.getName());
         message.setUserSender(userService.findOne(idActiveUser));
         message.setDateOfMessageCreation(LocalDateTime.now());
@@ -46,26 +48,25 @@ public class MessageController {
             messageService.update(lastMessage);
         }
         messageService.save(message);
+        List<MessageDTO> dialogue = DTOUtilMapper.messagesToMessagesDTO(messageService.findOneDialogue(idActiveUser, message.getUserReceiver().getId()));
 
-        List<String> strings = new ArrayList<>();
-        strings.add("one");
-        strings.add("two");
-        strings.add("three");
-        strings.add("four");
-        strings.add("five");
-        strings.add("six");
-        strings.add("seven");
-
-//        for (Message m: messsages) {
-//            System.err.println(m.getUserSender().getRole());
-//        }
-        return strings;
+        return dialogue;
     }
 
+
     @GetMapping("/dialogue/{idSender}/{idReceiver}")
-    public String seeDialogue(@PathVariable int idSender, @PathVariable int idReceiver, Model model) {
+    public String seeDialogue(@PathVariable int idSender, @PathVariable int idReceiver, Model model, Principal principal) {
         model.addAttribute("dialogue", messageService.findOneDialogue(idSender, idReceiver));
+        model.addAttribute("idActiveUser", Integer.valueOf(principal.getName()));
         return "views-message-theDialogue";
+    }
+
+
+    @ResponseBody
+    @GetMapping("/preloadDialogues/{idSender}/{idReceiver}")
+    public List<MessageDTO> seeDialogues(@PathVariable int idSender, @PathVariable int idReceiver, Principal principal) {
+        List<MessageDTO> dialogue = DTOUtilMapper.messagesToMessagesDTO(messageService.findOneDialogue(idSender, idReceiver));
+        return dialogue;
     }
 
 //	@ResponseBody

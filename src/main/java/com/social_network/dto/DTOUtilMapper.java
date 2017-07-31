@@ -14,9 +14,6 @@ import java.util.List;
  */
 public class DTOUtilMapper {
 
-    @Autowired
-    private MessageService messageService;
-
     public static FriendsDTO userToUserDTO(User user){
         FriendsDTO friendsDTO = new FriendsDTO();
         friendsDTO.setId(user.getId());
@@ -32,4 +29,24 @@ public class DTOUtilMapper {
         }
         return friendsDTOS;
     }
+
+    public static MessageDTO messageToMessageDTO(Message message){
+        MessageDTO messageDTO = new MessageDTO();
+        messageDTO.setId(message.getId());
+        messageDTO.setUserReceiver(message.getUserReceiver().getId());
+        messageDTO.setUserSender(message.getUserSender().getId());
+        messageDTO.setMessage(message.getMessage());
+        messageDTO.setFirstNameS(message.getUserSender().getFirstName());
+        messageDTO.setFirstNameR(message.getUserReceiver().getFirstName());
+        return messageDTO;
+    }
+
+    public static List<MessageDTO> messagesToMessagesDTO(List<Message> messages){
+        List<MessageDTO> messageDTOS = new ArrayList<>();
+        for (Message m: messages) {
+            messageDTOS.add(messageToMessageDTO(m));
+        }
+        return messageDTOS;
+    }
+
 }

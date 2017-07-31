@@ -43,5 +43,5 @@
     // this is important for IEs
     var polyfilter_scriptpath = '/js/';
 </script>
-<script src="js/modalWindow.js"></script>
-<script src="js/messages.js"></script>
+<script src="/js/modalWindow.js"></script>
+<script src="/js/friends.js"></script>
