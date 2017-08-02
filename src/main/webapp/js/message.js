@@ -1,8 +1,17 @@
 /**
  * Created by Дімон on 31.07.2017.
  */
+// var eeeeeeee = $('#setSecuredUser').context;
+//     console.log(eeeeeeee);
+
+
+
+
+
+
 $('#sendMessage').click(function () {
 //        console.log(window.location.pathname);
+
     var idUserReciever = 0;
     var id2 = $('#id2').val();
     var id1 = $('#id1').val();

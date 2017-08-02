@@ -173,5 +173,11 @@ public class UserController {
         return "views-user-friendPage";
     }
 
+    @GetMapping("/settings")
+    public String changeSettings(Model model, Principal principal){
+        model.addAttribute("activeUser", userService.findOne(Integer.valueOf(principal.getName())));
+        return "views-user-settings";
+    }
+
 
 }

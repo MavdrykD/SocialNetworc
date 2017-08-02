@@ -16,7 +16,7 @@
             <br>
             <li><a href="/message" class="btn btn-primary">My messages</a></li>
             <br>
-            <li><a href="/setup" class="btn btn-primary">Setup</a></li>
+            <li><a href="/settings" class="btn btn-primary">Settings</a></li>
 
         </sec:authorize>
         <sec:authorize access="hasRole('ROLE_ADMIN')">

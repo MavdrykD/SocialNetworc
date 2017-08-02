@@ -20,6 +20,7 @@ public class UserLoginValidator implements Validator{
     private BCryptPasswordEncoder encoder;
 
 
+
     @Override
     public void validate(Object o) throws Exception {
         User user = (User) o;
@@ -27,7 +28,7 @@ public class UserLoginValidator implements Validator{
             throw new UserException(UserLoginValidationMessages.EMPTY_USERNAME_FIELD);
         }  if (userDao.findByLogin(user.getLogin()) == null) {//доробити
             throw new UserException(UserLoginValidationMessages.WRONG_USERNAME_OR_PASSWORD);
-        } if (encoder.matches(user.getPassword(), userDao.findByLogin(user.getLogin()).getPassword())){
+        } if (!encoder.matches(user.getPassword(), userDao.findByLogin(user.getLogin()).getPassword())){
             throw new UserException(UserLoginValidationMessages.WRONG_USERNAME_OR_PASSWORD);
         }
     }
