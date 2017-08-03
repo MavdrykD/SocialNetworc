@@ -1,5 +1,7 @@
 package com.social_network.serviceImpl;
 
+import java.sql.Date;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,6 +20,10 @@ import org.springframework.stereotype.Service;
 import com.social_network.dao.UserDao;
 import com.social_network.entity.User;
 import com.social_network.service.UserService;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import javax.persistence.AttributeConverter;
+
 @Service("userDetailsService")
 public class UserServiceImpl implements UserService, UserDetailsService {
 	@Autowired
@@ -60,6 +66,25 @@ public class UserServiceImpl implements UserService, UserDetailsService {
 
 	public void update(User user) {
 		userDao.save(user);
+	}
+
+	public User changeFieldsUser(User user, User activeUser, String password){
+		if(!activeUser.getFirstName().isEmpty() && activeUser.getFirstName() != user.getFirstName()){
+			user.setFirstName(activeUser.getFirstName());
+		}
+		if(!activeUser.getLastName().isEmpty() && activeUser.getFirstName() != user.getLastName()){
+			user.setLastName(activeUser.getLastName());
+		}
+		if(!activeUser.getLogin().isEmpty() && activeUser.getLogin() != user.getLogin()){
+			user.setLogin(activeUser.getLogin());
+		}
+		if(activeUser.getBirthday() != null && activeUser.getBirthday() != user.getBirthday()){
+			user.setBirthday(activeUser.getBirthday());
+		}
+		if(!password.isEmpty() && !encoder.matches(password, user.getPassword())){
+			user.setPassword(activeUser.getPassword());
+		}
+		return user;
 	}
 
 	public User findByEmail(String email) {
@@ -114,4 +139,5 @@ public class UserServiceImpl implements UserService, UserDetailsService {
 		}
 		return users;
 	}
+
 }

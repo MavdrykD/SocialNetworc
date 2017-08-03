@@ -8,6 +8,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import java.sql.Date;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -29,7 +30,7 @@ public class User implements UserDetails {
 	private String login;
 	private String password;
 	private String email;
-	private LocalDate birthday;
+	private Date birthday;
 
 	private boolean enable;
 	private String uuid;
@@ -149,11 +150,11 @@ public class User implements UserDetails {
 		this.email = email;
 	}
 
-	public LocalDate getBirthday() {
+	public Date getBirthday() {
 		return birthday;
 	}
 
-	public void setBirthday(LocalDate birthday) {
+	public void setBirthday(Date birthday) {
 		this.birthday = birthday;
 	}
 

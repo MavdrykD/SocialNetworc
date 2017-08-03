@@ -49,4 +49,15 @@ public class DTOUtilMapper {
         return messageDTOS;
     }
 
+    public static UserForUptateDTO userToUserForUpdateDTO(User user){
+        UserForUptateDTO userDTO = new UserForUptateDTO();
+        userDTO.setId(user.getId());
+        userDTO.setFirstName(user.getFirstName());
+        userDTO.setLastName(user.getLastName());
+        userDTO.setLogin(user.getLogin());
+        userDTO.setBirthday(user.getBirthday());
+        userDTO.setPassword(user.getPassword());
+        return userDTO;
+    }
+
 }

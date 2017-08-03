@@ -1,9 +1,6 @@
 package com.social_network.controller;
 
 import com.social_network.dto.DTOUtilMapper;
-import com.social_network.dto.FriendsDTO;
-import com.social_network.dto.MessageDTO;
-import com.social_network.entity.Message;
 import com.social_network.service.MailSenderService;
 import com.social_network.validator.Validator;
 import com.social_network.validator.userLoginValidation.UserLoginValidationMessages;
@@ -16,7 +13,6 @@ import org.springframework.web.bind.annotation.*;
 
 import com.social_network.entity.User;
 import com.social_network.service.UserService;
-import org.springframework.web.multipart.MultipartFile;
 
 import java.security.Principal;
 import java.util.UUID;
@@ -32,12 +28,6 @@ public class UserController {
     private Validator validator;
     @Autowired
     private MailSenderService mailSenderService;
-
-//    @GetMapping("/failureLogin")
-//    public String loginFailed(Model model) {
-//        model.addAttribute("user", new User());
-//        return "views-base-index";
-//    }
 
     @GetMapping("/")
     public String registration(Model model) {
@@ -107,12 +97,6 @@ public class UserController {
         return "redirect:/";
     }
 
-//	@PostMapping("/addImage")
-//	public String addImage(@RequestParam MultipartFile image){
-//
-//		return
-//	}
-
 //	@GetMapping("/removeUser")
 //	public String deleteUser(Model model){
 //		model.addAttribute("users", userService.findAll());
@@ -153,7 +137,7 @@ public class UserController {
     }
 
     @ResponseBody
-    @GetMapping("/securedUser")
+    @GetMapping("/activeUser")
     public String getSecuredUser(Principal principal) {
         User user = userService.findOne(Integer.valueOf(principal.getName()));
         String securedUser = "Hi " + user.getFirstName();
@@ -169,15 +153,20 @@ public class UserController {
     @GetMapping("/userPage/{id}")
     public String seeFriendPage(@PathVariable int id, Model model) {
         model.addAttribute("user", userService.findOne(id));
-        String idUser = String.valueOf(id);
         return "views-user-friendPage";
     }
 
     @GetMapping("/settings")
     public String changeSettings(Model model, Principal principal){
-        model.addAttribute("activeUser", userService.findOne(Integer.valueOf(principal.getName())));
+        model.addAttribute("activeUser", DTOUtilMapper.userToUserForUpdateDTO(userService.findOne(Integer.valueOf(principal.getName()))));
         return "views-user-settings";
     }
 
+    @PostMapping("/updateUser/{id}")
+    public String updateUser(@PathVariable int id, @ModelAttribute("activeUser") User activeUser, @RequestParam String password){
+        User user = userService.findOne(id);
+        userService.update(userService.changeFieldsUser(user, activeUser, password));
+        return "redirect:/settings";
+    }
 
 }

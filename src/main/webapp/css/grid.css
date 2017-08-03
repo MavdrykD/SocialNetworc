@@ -1,8 +1,9 @@
-*{
+* {
     padding: 0px;
     margin: 0px;
 }
-.header{
+
+.header {
     padding-top: 7px;
     height: 50px;
     text-align: center;
@@ -11,49 +12,76 @@
     background-color: #3b5998;
 }
 
-.footer{
+.footer {
     height: 50px;
     background-color: #3b5998;
 }
 
-.leftMenu{
+.leftMenu {
     margin-top: 10px;
     position: fixed;
-    height: 85%;
     /*background-color: #2e458b;*/
 }
 
-.body{
+.body {
     border-right: 1px solid lightgray;
     border-left: 1px solid lightgray;
     margin-top: 10px;
+    margin-bottom: 10px;
+    min-height: 85%;
     /*background-color: aqua;*/
 }
-.content{
+
+.content {
     /*background-color: #9da537;*/
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
 }
 
-.header_ul{
-margin: 0px;
+.header_ul {
+    margin: 0px;
 }
 
-.logOutUser{
+.logOutUser {
 
 }
 
-.loginForm{
-    width: 40%;
-}
-
-.advertising{
+.advertising {
     background-color: #2e458b;
 }
 
+.updateUser, loginForm {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.newLine {
+    width: 100%;
+    display: flex;
+    margin-top: 20px;
+    justify-content: center;
+}
+
+.signature {
+    margin: auto 0px;
+    text-align: center;
+    width: 100px;
+}
+
+.inputData {
+    width: 300px;
+}
+
+.exception {
+    font-size: 12px;
+    color: darkred;
+    text-align: center;
+    /*width: 100%;*/
+}
+
 /*.whiteMessage{*/
-    /*background-color: whitesmoke;*/
+/*background-color: whitesmoke;*/
 /*}*/
 
 @import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:300);
@@ -82,6 +110,7 @@ margin: 0px;
     display: table;
     overflow: hidden;
 }
+
 .clearfix:before {
     content: " ";
     display: block;
@@ -97,13 +126,16 @@ margin: 0px;
     display: table;
     overflow: hidden;
 }
+
 .chat-wrapper:before {
     content: " ";
     display: block;
 }
+
 .chat-wrapper .chat-content {
     background-color: #fff;
 }
+
 .chat-wrapper .chat-image {
     float: left;
     -webkit-border-radius: 50%;
@@ -112,23 +144,28 @@ margin: 0px;
     -o-border-radius: 50%;
     border-radius: 50%;
 }
+
 .chat-wrapper .chat-image.chat-image-default {
     width: 60px;
     height: 60px;
 }
+
 .chat-wrapper .chat-message {
     margin-bottom: 20px;
     width: 100%;
     display: table;
     overflow: hidden;
 }
+
 .chat-wrapper .chat-message:before {
     content: " ";
     display: block;
 }
+
 .chat-wrapper .chat-message:last-of-type {
     margin-bottom: 0;
 }
+
 .chat-wrapper .chat-message .chat-message-wrapper {
     max-width: 70%;
     display: table;
@@ -136,6 +173,7 @@ margin: 0px;
     padding-top: 10px;
     position: relative;
 }
+
 .chat-wrapper .chat-message .chat-message-wrapper:before {
     content: " ";
     display: block;
@@ -146,41 +184,51 @@ margin: 0px;
     position: absolute;
     z-index: 2;
 }
+
 .chat-wrapper .chat-message .chat-message-wrapper p {
     padding: 10px 20px;
     color: #fff;
     border-top: 1px solid;
 }
+
 .chat-wrapper .chat-message .chat-message-wrapper p:first-of-type {
     border-top: 0 !important;
 }
+
 .chat-wrapper .chat-message.chat-message-recipient .chat-message-wrapper,
 .chat-wrapper .chat-message.chat-message-recipient .chat-message-content {
     float: left;
 }
+
 .chat-wrapper .chat-message.chat-message-recipient .chat-message-wrapper:before {
     left: -20px;
     border-right-color: #91D98A;
 }
+
 .chat-wrapper .chat-message.chat-message-recipient p {
     background-color: #91D98A;
     border-top-color: #7dc576;
 }
+
 .chat-wrapper .chat-message.chat-message-sender .chat-message-wrapper,
 .chat-wrapper .chat-message.chat-message-sender .chat-message-content {
     float: right;
 }
+
 .chat-wrapper .chat-message.chat-message-sender .chat-message-wrapper:before {
     right: -20px;
     border-left-color: #8AC0D9;
 }
+
 .chat-wrapper .chat-message.chat-message-sender p {
     background: #8AC0D9;
     border-top-color: #76acc5;
 }
+
 .chat-wrapper .chat-message.chat-message-sender img {
     float: right;
 }
+
 .chat-wrapper .chat-message .chat-message-content {
     display: table;
     overflow: hidden;
@@ -190,20 +238,24 @@ margin: 0px;
     -o-border-radius: 4px;
     border-radius: 4px;
 }
+
 .chat-wrapper .chat-message .chat-message-content:before {
     content: " ";
     display: block;
 }
+
 .chat-wrapper .chat-message .chat-details {
     clear: both;
     width: 100%;
     display: table;
     overflow: hidden;
 }
+
 .chat-wrapper .chat-message .chat-details:before {
     content: " ";
     display: block;
 }
+
 .chat-wrapper .chat-message .chat-details span {
     margin-right: 4px;
     color: #bbb;

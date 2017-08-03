@@ -32,4 +32,6 @@ public interface UserService {
 
 	List<User> findAllUsersByIdWhoSentMeARequest(@Param("id") int id);
 
+	User changeFieldsUser(User user, User activeUser, String password);
+
 }
