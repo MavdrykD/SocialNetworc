@@ -2,6 +2,7 @@ package com.social_network.controller;
 
 import com.social_network.dto.DTOUtilMapper;
 import com.social_network.service.MailSenderService;
+import com.social_network.utility.Gender;
 import com.social_network.validator.Validator;
 import com.social_network.validator.userLoginValidation.UserLoginValidationMessages;
 import com.social_network.validator.userValidator.UserValidationMessages;
@@ -30,15 +31,29 @@ public class UserController {
     private MailSenderService mailSenderService;
 
     @GetMapping("/")
-    public String registration(Model model) {
-        model.addAttribute("user", new User());
+    public String registration() {
         return "views-base-index";
     }
+
+    @GetMapping("/signUp")
+    public String createNewUser(Model model){
+        model.addAttribute("user", new User());
+        model.addAttribute("gender", Gender.values());
+        return "views-user-registration";
+    }
+
 
     @PostMapping("/signUp")
     public String saveUser(@ModelAttribute("user") User user, Model model) {
         String uuid = UUID.randomUUID().toString();
         user.setUuid(uuid);
+        String userPassword = user.getPassword();
+        if(user.getGender().equals(Gender.MALE)){
+            user.setGender(Gender.MALE);
+        }else{
+
+            user.setGender(Gender.FEMALE);
+        }
         try {
             userService.save(user);
         } catch (Exception e) {
@@ -58,10 +73,11 @@ public class UserController {
             }
 
             System.out.println("user = " + user);
-            return "views-base-index";
+            return "views-user-registration";
         }
         String theme = "thank's for registration";
-        String mailBody =
+        String mailBody ="login: "+user.getLogin()+"\n"+"password: "+userPassword+"\n"+
+
                 "gl & hf       http://localhost:8080/confirm/" + uuid;
 
         mailSenderService.sendMail(theme, mailBody, user.getEmail());
@@ -140,6 +156,7 @@ public class UserController {
     @GetMapping("/activeUser")
     public String getSecuredUser(Principal principal) {
         User user = userService.findOne(Integer.valueOf(principal.getName()));
+        System.err.println("user name = "+user.getFirstName());
         String securedUser = "Hi " + user.getFirstName();
         return securedUser;
     }

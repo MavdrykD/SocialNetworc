@@ -5,20 +5,18 @@ package com.social_network.validator.userValidator;
  */
 public interface UserValidationMessages {
 
-    String EMPTY_FIRST_NAME_FIELD = "EMPTY FIRST NAME FIELD";
+    String EMPTY_FIRST_NAME_FIELD = "empty first name field";
 
-    String EMPTY_LAST_NAME_FIELD = "EMPTY LAST NAME FIELD";
+    String EMPTY_LAST_NAME_FIELD = "empty last name field";
 
-    String EMPTY_LOGIN_FIELD = "EMPTY LOGIN FIELD";
-    String LOGIN_ALREADY_EXIST = "LOGIN ALREADY EXIST";
+    String EMPTY_LOGIN_FIELD = "empty login field";
+    String LOGIN_ALREADY_EXIST = "login already exist";
 
-    String EMPTY_PASSWORD_FIELD = "EMPTY PASSWORD FIELD";
-    String TOO_SHORT_PASSWORD = "TOO SHORT PASSWORD";//дописати в userValidator
-    //дописати новий інпут на підтвердження пароля і обробити тут
+    String EMPTY_PASSWORD_FIELD = "empty password field";
 
-    String EMPTY_EMAIL_FIELD = "EMPTY EMAIL FIELD";
-    String EMAIL_ALREADY_EXIST = "EMAIL ALREADY EXIST";
-    String WRONG_EMAIL = "WRONG_EMAIL! NEED @ SYMBOL";
+    String EMPTY_EMAIL_FIELD = "empty email field";
+    String EMAIL_ALREADY_EXIST = "email already exist";
+    String WRONG_EMAIL = "wrong email! need @ symbol";
 
 
 }

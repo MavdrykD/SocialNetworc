@@ -9,7 +9,7 @@
 <div class="loginForm">
     <sf:form class="login-form" action="/login" method="post">
         <div class="newLine">
-            <div class="inputData">
+            <div class="inputData" id="exception">
                 <div class="exception">${exception}</div>
                 <input class="form-control" name="username" type="text" autocomplete="off" placeholder="Enter login"
                        required="required">
@@ -22,7 +22,7 @@
         </div>
         <div class="newLine">
             <div class="loginButton">
-                <button type="submit" class="btn btn-primary"><spring:message code="label.Log_in"/></button>
+                <button type="submit" class="btn btn-primary" id="logIn"><spring:message code="label.Log_in"/></button>
             </div>
         </div>
     </sf:form>
@@ -32,6 +32,8 @@
        value="${_csrf.parameterName}"/>
 <input type="hidden" name="csrf_value"
        value="${_csrf.token}"/>
+
+
 
 
 

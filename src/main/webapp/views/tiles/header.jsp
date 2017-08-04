@@ -30,8 +30,9 @@
         </div>
     </sec:authorize>
     <sec:authorize access="!isAuthenticated()">
-        <a href="/message" class="btn btn-primary">Sign up</a>
+        <a href="/signUp" class="btn btn-primary">Sign up</a>
     </sec:authorize>
+
 </div>
 
 <input type="hidden" name="csrf_name"
@@ -46,13 +47,11 @@
 
     function loadActiveUser() {
         $.ajax({
-
             url: '/activeUser?' + $('input[name=csrf_name]').val() + "=" + $('input[name=csrf_value]').val(),
             method: 'GET',
             success: function (res) {
-                var securedUser = res;
-
-                document.getElementById('setActiveUser').innerHTML = securedUser;
+                var activeUser = res;
+                document.getElementById('setActiveUser').innerHTML = activeUser;
             },
             error: function (err) {
                 console.log(err)
