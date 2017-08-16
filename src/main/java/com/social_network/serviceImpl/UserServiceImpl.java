@@ -63,7 +63,8 @@ public class UserServiceImpl implements UserService, UserDetailsService {
 		userDao.delete(id);
 	}
 
-	public void update(User user) {
+	public void update(User user) throws Exception {
+//		validator.validate(user);
 		userDao.save(user);
 	}
 
@@ -77,12 +78,11 @@ public class UserServiceImpl implements UserService, UserDetailsService {
 		if(!activeUser.getLogin().isEmpty() && activeUser.getLogin() != user.getLogin()){
 			user.setLogin(activeUser.getLogin());
 		}
-		if(activeUser.getBirthday() != null && activeUser.getBirthday() != user.getBirthday()){
-			user.setBirthday(activeUser.getBirthday());
-		}
 		if(!password.isEmpty() && !encoder.matches(password, user.getPassword())){
 			user.setPassword(activeUser.getPassword());
 		}
+		user.setBirthday(activeUser.getBirthday());
+		System.err.println(activeUser);
 		return user;
 	}
 

@@ -71,8 +71,6 @@ public class UserController {
                     e.getMessage().equals(UserValidationMessages.WRONG_EMAIL)) {
                 model.addAttribute("emailException", e.getMessage());
             }
-
-            System.out.println("user = " + user);
             return "views-user-registration";
         }
         String theme = "thank's for registration";
@@ -108,8 +106,11 @@ public class UserController {
         User user = userService.findByUuid(uuid);
         user.setEnable(true);
 
-        userService.update(user);
-
+        try {
+            userService.update(user);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         return "redirect:/";
     }
 
@@ -156,8 +157,7 @@ public class UserController {
     @GetMapping("/activeUser")
     public String getSecuredUser(Principal principal) {
         User user = userService.findOne(Integer.valueOf(principal.getName()));
-        System.err.println("user name = "+user.getFirstName());
-        String securedUser = "Hi " + user.getFirstName();
+        String securedUser = user.getLogin();
         return securedUser;
     }
 
@@ -180,9 +180,28 @@ public class UserController {
     }
 
     @PostMapping("/updateUser/{id}")
-    public String updateUser(@PathVariable int id, @ModelAttribute("activeUser") User activeUser, @RequestParam String password){
+    public String updateUser(@PathVariable int id, @ModelAttribute("activeUser") User activeUser, @RequestParam String password, Model model){
         User user = userService.findOne(id);
-        userService.update(userService.changeFieldsUser(user, activeUser, password));
+        try {
+            userService.update(userService.changeFieldsUser(user, activeUser, password));
+        } catch (Exception e) {
+//            if (e.getMessage().equals(UserValidationMessages.EMPTY_FIRST_NAME_FIELD)) {
+//                model.addAttribute("first_nameException", e.getMessage());
+//            } else if (e.getMessage().equals(UserValidationMessages.EMPTY_LAST_NAME_FIELD)) {
+//                model.addAttribute("last_nameException", e.getMessage());
+//            } else if (e.getMessage().equals(UserValidationMessages.EMPTY_LOGIN_FIELD) ||
+//                    e.getMessage().equals(UserValidationMessages.LOGIN_ALREADY_EXIST)) {
+//                model.addAttribute("loginException", e.getMessage());
+//            } else if (e.getMessage().equals(UserValidationMessages.EMPTY_PASSWORD_FIELD)) {
+//                model.addAttribute("passwordException", e.getMessage());
+//            } else if (e.getMessage().equals(UserValidationMessages.EMPTY_EMAIL_FIELD) ||
+//                    e.getMessage().equals(UserValidationMessages.EMAIL_ALREADY_EXIST) ||
+//                    e.getMessage().equals(UserValidationMessages.WRONG_EMAIL)) {
+//                model.addAttribute("emailException", e.getMessage());
+//            } else  if(1==2){
+//
+//            }
+        }
         return "redirect:/settings";
     }
 

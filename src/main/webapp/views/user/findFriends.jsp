@@ -11,7 +11,7 @@
     <%--</c:forEach>--%>
 <%--</ol>--%>
 
-<div class="form-group; col-lg-10">
+<div class="form-group; col-lg-12">
     <input type="text" class="form-control" id="searchIn"
            placeholder="search" oninput="search()"/>
 </div>

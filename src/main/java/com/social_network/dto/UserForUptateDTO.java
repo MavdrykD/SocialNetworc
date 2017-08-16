@@ -1,7 +1,8 @@
 package com.social_network.dto;
 
+import com.social_network.utility.Gender;
+
 import java.sql.Date;
-import java.time.LocalDate;
 
 /**
  * Created by Дімон on 02.08.2017.
@@ -14,6 +15,7 @@ public class UserForUptateDTO {
     private String login;
     private String password;
     private Date birthday;
+    private Gender gender;
 
     public int getId() {
         return id;
@@ -61,5 +63,13 @@ public class UserForUptateDTO {
 
     public void setBirthday(Date birthday) {
         this.birthday = birthday;
+    }
+
+    public Gender getGender() {
+        return gender;
+    }
+
+    public void setGender(Gender gender) {
+        this.gender = gender;
     }
 }

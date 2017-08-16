@@ -18,6 +18,13 @@
             <div class="inputData"><sf:input path="login" class="form-control" type="text" value="${activeUser.login}"/></div>
         </div>
         <div class="newLine">
+            <div class="signature">Gender</div>
+            <div class="inputData">
+                <label class="radio-inline"><sf:radiobutton path="Gender"  value="MALE"/>male</label>
+                <label class="radio-inline"><sf:radiobutton path="Gender"  value="FEMALE"/>female</label>
+            </div>
+        </div>
+        <div class="newLine">
             <div class="signature">Birthday</div>
             <div class="inputData"><sf:input id="birthday" path="birthday" type="date" class="form-control" name="birthday" value="${activeUser.birthday}"/></div>
         </div>

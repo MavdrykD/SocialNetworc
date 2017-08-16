@@ -279,18 +279,6 @@ public class User implements UserDetails {
 	}
 
 	@Override
-	public String toString() {
-		return "User{" +
-				"user_id=" + id +
-				", firstName='" + firstName + '\'' +
-				", lastName='" + lastName + '\'' +
-				", login='" + login + '\'' +
-				", password='" + password + '\'' +
-				", email='" + email + '\'' +
-				'}';
-	}
-
-	@Override
 	public boolean equals(Object o) {
 		if (this == o) return true;
 		if (o == null || getClass() != o.getClass()) return false;
@@ -301,5 +289,20 @@ public class User implements UserDetails {
 	@Override
 	public int hashCode() {
 		return Objects.hash(id);
+	}
+
+	@Override
+	public String toString() {
+		return "User{" +
+				"id=" + id +
+				", firstName='" + firstName + '\'' +
+				", lastName='" + lastName + '\'' +
+				", login='" + login + '\'' +
+				", password='" + password + '\'' +
+				", email='" + email + '\'' +
+				", birthday=" + birthday +
+				", Gender=" + Gender +
+				", maritalStatus=" + maritalStatus +
+				'}';
 	}
 }

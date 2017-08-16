@@ -18,7 +18,7 @@ public interface UserService {
 
 	void delete(int id);
 
-	void update(User user);
+	void update(User user) throws Exception;
 	
 	User findByEmail(String email);
 

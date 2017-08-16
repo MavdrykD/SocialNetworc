@@ -10,12 +10,14 @@
 --%>
 <html>
 <head>
+    <meta charset="UTF-8">
     <%--шукає файл стилізації--%>
     <link rel="stylesheet" type="text/css" href="/css/madalWindov.css">
     <%--шукає файл стилізації--%>
     <link rel="stylesheet" type="text/css" href="/css/previewImg.css">
     <link rel="stylesheet" type="text/css" href="/css/grid.css">
-        <%--<link rel="stylesheet" type="text/css" href="/css/registrationForm.css">--%>
+    <link rel="stylesheet" type="text/css" href="/css/toolTip.css">
+    <%--<link rel="stylesheet" type="text/css" href="/css/registrationForm.css">--%>
 
     <title>Title</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -25,25 +27,15 @@
 
 </head>
 <body>
-<div class="content">
-
-
+<div class="bodyContent">
     <div class="header"><tiles:insertAttribute name="header"/></div>
 
     <div class="myContainer">
-        <div class="row">
-            <div class="col-md-3">
-                <div class="row">
-                    <div class="col-md-12 leftMenu"><tiles:insertAttribute name="leftMenu"/></div>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="body"><tiles:insertAttribute name="body"/></div>
-            </div>
-            <div class="col-md-3">
-                <div class="advertising"><tiles:insertAttribute name="advertising"/></div>
-            </div>
-        </div>
+        <div class="leftMenu"><tiles:insertAttribute name="leftMenu"/></div>
+
+        <div class="body"><tiles:insertAttribute name="body"/></div>
+
+        <div class="advertising"><tiles:insertAttribute name="advertising"/></div>
     </div>
 
     <div class="footer"><tiles:insertAttribute name="footer"/></div>

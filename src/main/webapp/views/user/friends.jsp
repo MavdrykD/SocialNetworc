@@ -22,7 +22,7 @@
 <ol>
 <c:forEach var="friend" items="${friends}">
     <li>${friend.firstName} ${friend.lastName}
-        <button class="md-trigger sendMessage" data-modal="modal-8"  name="${friend.id}" onclick="saveFriendId(${friend.id})">Write a message</button> <%--2. Кнопка для модального вікна--%>
+        <button class="md-trigger btn btn-primary sendMessage" data-modal="modal-8"  name="${friend.id}" onclick="saveFriendId(${friend.id})">Write a message</button> <%--2. Кнопка для модального вікна--%>
     </li>
 </c:forEach>
 </ol>

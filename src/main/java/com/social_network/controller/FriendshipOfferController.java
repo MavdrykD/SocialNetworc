@@ -62,8 +62,12 @@ public class FriendshipOfferController {
         user.getFriends().add(addToFriend);
         addToFriend.getFriends().add(user);
 
-        userService.update(user);
-        userService.update(addToFriend);
+        try {
+            userService.update(user);
+            userService.update(addToFriend);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         return "redirect:/allFriendRequest";
     }
 
