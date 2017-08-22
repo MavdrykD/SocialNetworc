@@ -11,6 +11,8 @@ import com.social_network.utility.Role;
 import com.social_network.validator.Validator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -139,4 +141,8 @@ public class UserServiceImpl implements UserService, UserDetailsService {
 		return users;
 	}
 
+	@Override
+	public Page<User> findAllPagesOfUsers(Pageable pageable) {
+		return userDao.findAll(pageable);
+	}
 }

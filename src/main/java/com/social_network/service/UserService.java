@@ -3,6 +3,8 @@ package com.social_network.service;
 import java.util.List;
 
 import com.social_network.entity.User;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.repository.query.Param;
 
 public interface UserService {
@@ -33,5 +35,7 @@ public interface UserService {
 	List<User> findAllUsersByIdWhoSentMeARequest(@Param("id") int id);
 
 	User changeFieldsUser(User user, User activeUser, String password);
+
+	Page<User> findAllPagesOfUsers(Pageable pageable);
 
 }

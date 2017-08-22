@@ -4,22 +4,24 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 
-
 <div class="loginForm">
     <sf:form class="login-form" action="/login" method="post">
         <div class="newLine">
+            <div class="signature"><spring:message code="label.Login"/></div>
             <div class="inputData" id="exception">
                 <div class="exception">${exception}</div>
-                <input class="form-control" name="username" type="text" autocomplete="off" placeholder="Enter login"
+                <input class="form-control" name="username" type="text" autocomplete="off" placeholder="<spring:message code="label.EnterLogin"/>"
                        required="required">
             </div>
         </div>
         <div class="newLine">
+            <div class="signature"><spring:message code="label.Password"/></div>
             <div class="inputData"><input class="form-control" name="password" type="password" autocomplete="off"
-                                          placeholder="Enter password" required="required">
+                                          placeholder="<spring:message code="label.EnterPassword"/>" required="required">
             </div>
         </div>
         <div class="newLine">
+            <div class="signature"></div>
             <div class="loginButton">
                 <button type="submit" class="btn btn-primary" id="logIn"><spring:message code="label.Log_in"/></button>
             </div>

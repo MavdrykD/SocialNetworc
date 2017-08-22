@@ -1,19 +1,21 @@
 package com.social_network.controller;
 
 import com.social_network.dto.DTOUtilMapper;
+import com.social_network.entity.User;
 import com.social_network.service.MailSenderService;
+import com.social_network.service.UserService;
 import com.social_network.utility.Gender;
 import com.social_network.validator.Validator;
 import com.social_network.validator.userLoginValidation.UserLoginValidationMessages;
 import com.social_network.validator.userValidator.UserValidationMessages;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-
-import com.social_network.entity.User;
-import com.social_network.service.UserService;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.security.Principal;
 import java.util.UUID;
@@ -162,8 +164,8 @@ public class UserController {
     }
 
     @GetMapping("/allUsers")
-    public String seeAllUser(Model model) {
-        model.addAttribute("users", userService.findAll());
+    public String seeAllUser(Model model, @PageableDefault Pageable pageable) {
+        model.addAttribute("users", userService.findAllPagesOfUsers(pageable));
         return "views-admin-allUser";
     }
 
@@ -203,6 +205,13 @@ public class UserController {
 //            }
         }
         return "redirect:/settings";
+    }
+
+    @PostMapping("/saveAvatar")
+    public String saveAvatar(@RequestParam MultipartFile avatar){
+
+
+        return "views-user-userPage";
     }
 
 }

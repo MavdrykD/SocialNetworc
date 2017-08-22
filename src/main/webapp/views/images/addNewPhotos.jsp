@@ -1,6 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="sf" %>
-
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 
 <style>
     .img-thumbnail {
@@ -18,10 +18,10 @@
         <%--<br><br>--%>
         <%--<div class="row"><span id="output"></span></div>--%>
         <%--<br><br>--%>
-        <div class="row"><label>Мультизагрузка изображений:</label><input type="file" id="fileMulti" name="images" multiple accept="image/*"/></div><br><br>
+        <div class="row"><label><spring:message code="label.ChoosePhotos"/></label><input type="file" id="fileMulti" name="images" multiple accept="image/*" required="required"/></div><br><br>
         <div class="row"><span id="outputMulti"></span></div>
     </div>
-    <button type="submit" class="btn btn-primary">add photo</button>
+    <button type="submit" class="btn btn-primary"><spring:message code="label.AddPhoto"/></button>
 </sf:form>
 
 

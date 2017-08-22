@@ -34,6 +34,9 @@ public class User implements UserDetails {
 
 	private boolean enable;
 	private String uuid;
+	private String pathAvatar;
+
+
 
 	@Enumerated(EnumType.STRING)
 	private Gender Gender;
@@ -196,6 +199,14 @@ public class User implements UserDetails {
 
 	public void setGender(Gender gender) {
 		Gender = gender;
+	}
+
+	public String getPathAvatar() {
+		return pathAvatar;
+	}
+
+	public void setPathAvatar(String pathAvatar) {
+		this.pathAvatar = pathAvatar;
 	}
 
 	public List<FriendshipOffer> getFriendshipOffers() {

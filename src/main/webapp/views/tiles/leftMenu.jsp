@@ -8,15 +8,15 @@
             <%--<sec:authorize access="isAuthenticated()">--%>
             <%--</sec:authorize>--%>
         <sec:authorize access="hasRole('ROLE_USER')">
-            <li><a href="/userPage/${idSecuredUser}" class="btn btn-primary">My page</a></li>
+            <li><a href="/userPage/${idSecuredUser}" class="btn btn-primary"><spring:message code="label.MyPage"/></a></li>
             <br>
-            <li><a href="/friends" class="btn btn-primary">My friends</a></li>
+            <li><a href="/friends" class="btn btn-primary"><spring:message code="label.MyFriends"/></a></li>
             <br>
-            <li><a href="/myPhotos" class="btn btn-primary">My photos</a></li>
+            <li><a href="/myPhotos" class="btn btn-primary"><spring:message code="label.MyPhotos"/></a></li>
             <br>
-            <li><a href="/message" class="btn btn-primary">My messages</a></li>
+            <li><a href="/message" class="btn btn-primary"><spring:message code="label.MyMessages"/></a></li>
             <br>
-            <li><a href="/settings" class="btn btn-primary">Settings</a></li>
+            <li><a href="/settings" class="btn btn-primary"><spring:message code="label.Settings"/></a></li>
 
         </sec:authorize>
         <sec:authorize access="hasRole('ROLE_ADMIN')">

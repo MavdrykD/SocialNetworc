@@ -112,6 +112,11 @@
     /*width: 100%;*/
 }
 
+.filtr{
+    display: flex;
+    justify-content: flex-end;
+}
+
 /*.whiteMessage{*/
 /*background-color: whitesmoke;*/
 /*}*/

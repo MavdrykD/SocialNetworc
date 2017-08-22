@@ -17,6 +17,7 @@
     <link rel="stylesheet" type="text/css" href="/css/previewImg.css">
     <link rel="stylesheet" type="text/css" href="/css/grid.css">
     <link rel="stylesheet" type="text/css" href="/css/toolTip.css">
+    <link rel="stylesheet" type="text/css" href="/css/headerStyle.css">
     <%--<link rel="stylesheet" type="text/css" href="/css/registrationForm.css">--%>
 
     <title>Title</title>
