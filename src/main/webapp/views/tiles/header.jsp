@@ -5,10 +5,12 @@
 
 <%--<div class="row">--%>
 <div class="nameOfSocialNetwork">
-    якась інфа
+    <img src="/css/logotype/logotype.png"  alt="logotype" border="0">
 </div>
-<a href="?lang=ua"><img src="UA.png" width="45" alt="UA" border="0"></a>
-<a href="?lang=en"><img src="USA.PNG" width="45" alt="ENG" border="0"></a>
+<div class="locolization">
+    <a href="?lang=ua"><img src="/css/lang_img/UK.png" width="40" alt="UA" border="0"></a>
+    <a href="?lang=en"><img src="/css/lang_img/USA.png" width="40" alt="ENG" border="0"></a>
+</div>
 <div class="userInfHeader">
     <sec:authorize access="hasRole('ROLE_ADMIN')">
         <sec:authentication property="name"/>
@@ -31,14 +33,6 @@
     </sec:authorize>
 </div>
 
-<%--<div class="localization">--%>
-    <%--<select class="selectpicker" data-width="fit">--%>
-        <%--<option data-content='<span class="flag-icon flag-icon-us"></span> English'>English</option>--%>
-        <%--<option  data-content='<span class="flag-icon flag-icon-mx"></span> Español'>Español</option>--%>
-    <%--</select>--%>
-<%--</div>--%>
-
-<%--</div>--%>
 
 <script>
 

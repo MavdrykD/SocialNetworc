@@ -6,6 +6,7 @@ import com.social_network.entity.User;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.repository.query.Param;
+import org.springframework.web.multipart.MultipartFile;
 
 public interface UserService {
 	
@@ -37,5 +38,7 @@ public interface UserService {
 	User changeFieldsUser(User user, User activeUser, String password);
 
 	Page<User> findAllPagesOfUsers(Pageable pageable);
+
+	void updateAvatar(User user, MultipartFile avatar);
 
 }

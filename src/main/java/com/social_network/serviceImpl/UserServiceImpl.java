@@ -1,5 +1,7 @@
 package com.social_network.serviceImpl;
 
+import java.io.File;
+import java.io.IOException;
 import java.sql.Date;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -9,6 +11,7 @@ import com.social_network.dao.FriendshipOfferDao;
 import com.social_network.entity.FriendshipOffer;
 import com.social_network.utility.Role;
 import com.social_network.validator.Validator;
+import org.apache.commons.io.FileUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.data.domain.Page;
@@ -23,6 +26,7 @@ import com.social_network.dao.UserDao;
 import com.social_network.entity.User;
 import com.social_network.service.UserService;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.persistence.AttributeConverter;
 
@@ -144,5 +148,31 @@ public class UserServiceImpl implements UserService, UserDetailsService {
 	@Override
 	public Page<User> findAllPagesOfUsers(Pageable pageable) {
 		return userDao.findAll(pageable);
+	}
+
+	@Override
+	public void updateAvatar(User user, MultipartFile avatar) {
+		user.setLogin(user.getLogin());
+
+		String path = "D:\\Мавдрик\\apache-tomcat-8.0.43\\resources\\"
+				+ user.getLogin() + "/avatar/" + avatar.getOriginalFilename();
+
+		user.setPathAvatar("resources/" + user.getLogin() + "/avatar/" + avatar.getOriginalFilename());
+
+		File filePath = new File(path);
+
+		try {
+			filePath.mkdirs();
+			try {
+				FileUtils.cleanDirectory(new File(System.getProperty("catalina.home") + "/resources/" + user.getLogin() + "/avatar/"));
+			} catch (IOException e) {
+
+			}
+			avatar.transferTo(filePath);
+		} catch (IOException e) {
+			System.out.println("error with file");
+		}
+
+		userDao.save(user);
 	}
 }

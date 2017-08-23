@@ -52,8 +52,9 @@ public class UserController {
         String userPassword = user.getPassword();
         if(user.getGender().equals(Gender.MALE)){
             user.setGender(Gender.MALE);
+            user.setPathAvatar("resources/standart_Avatar/man.jpg");
         }else{
-
+            user.setPathAvatar("resources/standart_Avatar/woman.jpg");
             user.setGender(Gender.FEMALE);
         }
         try {
@@ -131,7 +132,8 @@ public class UserController {
 
 
     @GetMapping("/userPage")
-    public String userPage() {
+    public String userPage(Principal principal, Model model) {
+        model.addAttribute("activeUser", userService.findOne(Integer.valueOf(principal.getName())));
         return "views-user-userPage";
     }
 
@@ -208,10 +210,11 @@ public class UserController {
     }
 
     @PostMapping("/saveAvatar")
-    public String saveAvatar(@RequestParam MultipartFile avatar){
+    public String saveAvatar(Principal principal, @RequestParam MultipartFile avatar){
+        User user = userService.findOne(Integer.valueOf(principal.getName()));
+        userService.updateAvatar(user, avatar);
 
-
-        return "views-user-userPage";
+        return "redirect:/userPage";
     }
 
 }
