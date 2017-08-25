@@ -7,7 +7,7 @@
 <div class="nameOfSocialNetwork">
     <img src="/css/logotype/logotype.png"  alt="logotype" border="0">
 </div>
-<div class="locolization">
+<div class="localization">
     <a href="?lang=ua"><img src="/css/lang_img/UK.png" width="40" alt="UA" border="0"></a>
     <a href="?lang=en"><img src="/css/lang_img/USA.png" width="40" alt="ENG" border="0"></a>
 </div>

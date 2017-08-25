@@ -3,3 +3,11 @@
     border: hidden;
     margin: 10px 5px 0 0;
 }
+
+.thumb{
+    width: 300px;
+}
+.new-avatar-container{
+    background-color: #91D98A;
+    max-width: 300px;
+}

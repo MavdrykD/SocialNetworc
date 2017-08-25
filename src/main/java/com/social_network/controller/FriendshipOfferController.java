@@ -38,14 +38,14 @@ public class FriendshipOfferController {
             e.printStackTrace();
         }
 
-        return "redirect:/findNewFriend";
+        return "redirect:/friends";
     }
 
-    @GetMapping("/allFriendRequest")
-    public String seeAllFriendRequest(Model model, Principal principal){
-        model.addAttribute("allFriendRequest", offerService.findUsersByIdWhoSentTheRequest(Integer.valueOf(principal.getName())));
-        return "views-user-allOffers";
-    }
+//    @GetMapping("/allFriendRequest")
+//    public String seeAllFriendRequest(Model model, Principal principal){
+//        model.addAttribute("allFriendRequest", offerService.findUsersByIdWhoSentTheRequest(Integer.valueOf(principal.getName())));
+//        return "views-user-allOffers";
+//    }
 
     @GetMapping("/confirmRequest/{id}")
     public String confirmTheRequest(@PathVariable int id, Principal principal){
@@ -68,7 +68,7 @@ public class FriendshipOfferController {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return "redirect:/allFriendRequest";
+        return "redirect:/friends";
     }
 
     @GetMapping("/declineRequest/{id}")

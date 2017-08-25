@@ -4,13 +4,9 @@
 
 <div class="userInformationInMyPage">
     <div class="usersAvatar">
-        <img class="img-responsive img-rounded" src="${activeUser.pathAvatar}">
+        <img class="img-responsive img-rounded" id="avatar" src="${activeUser.pathAvatar}">
         <div class="changeAvatar">
-            <sf:form action="/saveAvatar?${_csrf.parameterName}=${_csrf.token}" method="post"
-                     enctype="multipart/form-data">
-                <input name="avatar" type="file" class="form-control" accept="image/*" required="required">
-                <button type="submit" class="btn btn-primary"><spring:message code="label.UpdateAvatar"/></button>
-            </sf:form>
+            опробувати додати кніпку
         </div>
     </div>
     <div class="userInfo">
@@ -25,6 +21,14 @@
             </div>
             <div class="lineData">
                 ${activeUser.birthday}
+            </div>
+        </div>
+        <div class="newLinePersonalInf">
+            <div class="lineName">
+                <spring:message code="label.Gender"/>:
+            </div>
+            <div class="lineData">
+                ${activeUser.gender}
             </div>
         </div>
         <div class="newLinePersonalInf">
@@ -45,8 +49,8 @@
 
 </div>
 
+<%--<script type="text/javascript" src="/js/forSettings.js"></script>--%>
 
-<%--<a href="/madalWindov" class="btn btn-primary">Modal window</a>--%>
 
 
 

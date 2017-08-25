@@ -35,6 +35,7 @@ public class User implements UserDetails {
 	private boolean enable;
 	private String uuid;
 	private String pathAvatar;
+	private String pathNewAvatar;
 
 
 
@@ -103,6 +104,14 @@ public class User implements UserDetails {
 
 	public void setUuid(String uuid) {
 		this.uuid = uuid;
+	}
+
+	public String getPathNewAvatar() {
+		return pathNewAvatar;
+	}
+
+	public void setPathNewAvatar(String pathNewAvatar) {
+		this.pathNewAvatar = pathNewAvatar;
 	}
 
 	public int getUser_id() {

@@ -19,4 +19,6 @@ public interface UserPhotosService {
     UserPhotos findOne(int id);
 
     void delete(int id);
+
+    List<UserPhotos> findPhotosByUserId(int id);
 }

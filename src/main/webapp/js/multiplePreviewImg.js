@@ -40,3 +40,4 @@ document.getElementById('fileMulti').addEventListener('change', handleFileSelect
 // deleteImage.type = 'button';
 // deleteImage.name = 'delete';
 // document.getElementById('outputMulti').insertBefore(deleteImage, null);
+

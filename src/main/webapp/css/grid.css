@@ -22,7 +22,7 @@
     margin: auto 10px;
 }
 
-.locolization {
+.localization {
     width: 10%;
     text-align: center;
 }
@@ -96,13 +96,14 @@
     margin-left: 25px;
     margin-right: 25px;
 
-    width: 53%;
+
     background-color: #91D98A;
     display: flex;
     flex-direction: column;
     /*flex-wrap: wrap;*/
 }
-.headLinePersonalInf{
+
+.headLinePersonalInf {
     width: 100%;
     height: 70px;
     background-color: #bbbbbb;
@@ -110,31 +111,48 @@
     border-bottom: 1px solid darkgrey;
 
 }
-.newLinePersonalInf{
-display: flex;
-    margin-top: 15px;
+
+.newLinePersonalInf {
+    display: flex;
+    margin-top: 10px;
 }
-.lineName{
+
+.lineName {
     padding-left: 5px;
     margin-right: 20px;
 }
 
 .usersAvatar {
     width: 300px;
-    height: auto;
     margin-left: 25px;
-    /*background-color: #222222;*/
+    background-color: #222222;
 }
-.grayLine{
+
+.grayLine {
     margin-left: 25px;
     margin-right: 25px;
     border-bottom: 1px solid darkgrey;
 }
+
 .userWall {
     min-height: 300px;
     background-color: #333333;
 }
 
+
+
+/*----------Friend------------------*/
+.friend{
+    display: flex;
+    width: 100%;
+    height: 100px;
+    border-bottom: 1px solid darkgrey;
+}
+.friendAvatar{
+    width: 90px;
+    height: 90px;
+    background-color: #bbbbbb;
+}
 /*.content {*/
 /*!*background-color: #9da537;*!*/
 /*display: flex;*/
@@ -184,6 +202,35 @@ display: flex;
     display: flex;
     justify-content: flex-end;
 }
+
+
+/*---------------------для галереї*/
+body {
+    padding: 2px 0 0 2px;
+}
+
+.gallery img {
+    float: left;
+    padding: 0 2px 2px 0;
+    /* Yes, you *can* adjust/remove padding. */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /*.whiteMessage{*/
 /*background-color: whitesmoke;*/

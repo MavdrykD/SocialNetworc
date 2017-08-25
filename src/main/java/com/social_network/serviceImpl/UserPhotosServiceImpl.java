@@ -73,4 +73,9 @@ public class UserPhotosServiceImpl implements UserPhotosService{
     public void delete(int id) {
         userPhotosDao.delete(id);
     }
+
+    @Override
+    public List<UserPhotos> findPhotosByUserId(int id) {
+        return userPhotosDao.findPhotosByUserId(id);
+    }
 }

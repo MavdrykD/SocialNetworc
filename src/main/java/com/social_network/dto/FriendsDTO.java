@@ -7,6 +7,7 @@ public class FriendsDTO {
     private int id;
     private String firstName;
     private String lastName;
+    private String pathAvatar;
 
     public int getId() {
         return id;
@@ -32,12 +33,11 @@ public class FriendsDTO {
         this.lastName = lastName;
     }
 
-    @Override
-    public String toString() {
-        return "FriendsDTO{" +
-                "id=" + id +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                '}';
+    public String getPathAvatar() {
+        return pathAvatar;
+    }
+
+    public void setPathAvatar(String pathAvatar) {
+        this.pathAvatar = pathAvatar;
     }
 }

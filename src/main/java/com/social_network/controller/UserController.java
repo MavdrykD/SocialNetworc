@@ -2,6 +2,7 @@ package com.social_network.controller;
 
 import com.social_network.dto.DTOUtilMapper;
 import com.social_network.entity.User;
+import com.social_network.service.FriendshipOfferService;
 import com.social_network.service.MailSenderService;
 import com.social_network.service.UserService;
 import com.social_network.utility.Gender;
@@ -25,6 +26,9 @@ import java.util.UUID;
 public class UserController {
     @Autowired
     private UserService userService;
+
+    @Autowired
+    private FriendshipOfferService offerService;
 
     @Autowired
     @Qualifier("userLoginValidator")
@@ -134,13 +138,15 @@ public class UserController {
     @GetMapping("/userPage")
     public String userPage(Principal principal, Model model) {
         model.addAttribute("activeUser", userService.findOne(Integer.valueOf(principal.getName())));
+        User user = userService.findOne(Integer.valueOf(principal.getName()));
+        System.err.println(user.getGender());
         return "views-user-userPage";
     }
 
     @PostMapping("/userPage")
     public String helloUser(Principal principal) {
-        int idSecuredUser = Integer.valueOf(principal.getName());
-        return "views-user-userPage/" + idSecuredUser;
+//        int idSecuredUser = Integer.valueOf(principal.getName());
+        return "views-user-userPage";
     }
 
     @GetMapping("/friends")
@@ -148,6 +154,9 @@ public class UserController {
         User user = userService.findByIdWithFriends(Integer.valueOf(principal.getName()));
         model.addAttribute("friends", DTOUtilMapper.usersToFriendsDTOs(user.getFriends()));
 
+
+        model.addAttribute("users", userService.findAllWhoCanBeAddedToFriends(Integer.valueOf(principal.getName())));
+        model.addAttribute("allFriendRequest", offerService.findUsersByIdWhoSentTheRequest(Integer.valueOf(principal.getName())));
         return "views-user-friends";
     }
 

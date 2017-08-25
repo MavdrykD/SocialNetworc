@@ -19,6 +19,7 @@ public class DTOUtilMapper {
         friendsDTO.setId(user.getId());
         friendsDTO.setFirstName(user.getFirstName());
         friendsDTO.setLastName(user.getLastName());
+        friendsDTO.setPathAvatar(user.getPathAvatar());
         return friendsDTO;
     }
 
